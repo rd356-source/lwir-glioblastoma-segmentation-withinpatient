@@ -341,17 +341,6 @@ def evaluate(model, device):
 # In[38]:
 
 
-if __name__ == "__main__":
-    create_splits()
-    pos_weight = compute_pos_weight()
-    model = train(pos_weight)
-    evaluate(model, device)
-    overlay(model, device)
-
-
-# In[37]:
-
-
 def overlay(model, device):
     fold = list(json.load(open("splits.json")).keys())[0]
     to_list = lambda x: [x] if isinstance(x, str) else x
@@ -399,7 +388,15 @@ def overlay(model, device):
     vid.release()
                        
                        
+if __name__ == "__main__":
+    create_splits()
+    pos_weight = compute_pos_weight()
+    model = train(pos_weight)
+    evaluate(model, device)
+    overlay(model, device)
 
+
+# In[37]:
 
 # In[ ]:
 
