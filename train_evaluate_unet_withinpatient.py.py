@@ -328,7 +328,7 @@ def evaluate(model, device):
             if p.any() and g.any():
                 as_.append(float((distance_transform_edt(~g)[p].mean()+distance_transform_edt(~p)[g].mean())/2))
             else:
-                as_.append(0,0)
+                as_.append(0.0)
                 
         print(f"\nTest Results:")
         print(f" Dice: {np.mean(ds):.4f}")
